@@ -1,0 +1,127 @@
+year,event,type,art_type,location
+1792,Born on 1 May,life,NA,"West Boxford, MA"
+1796,Began school,occupation,NA,"West Boxford, MA"
+1801,"Moved to Flintstown, Maine",residence,NA,"Baldwin, ME"
+1804,"Living in Pleasant Mountain Gore, Maine",residence,NA,"Denmark, ME"
+1804,Entered Fryeburg Academy,occupation,NA,"Fryeburg, ME"
+1805,Farming and fiddling in Pleasant Mountain Gore,residence,NA,"Denmark, ME"
+1807,Shoemaker's apprentice ,occupation,NA,"West Boxford, MA"
+1807,Playing fife and fiddle,art,music,"Portland, ME"
+1810,House and sign painter,art,exterior,"Portland, ME"
+1812,Private in Boxford West Parish company of foot soldiers,occupation,NA,"West Boxford, MA"
+1812,"On 25 May, drafted as a private from West Boxford to guard Atlantic seaboard",occupation,NA,"West Boxford, MA"
+1812,Painting gunboats,art,exterior,"Portland, ME"
+1813,"Painting sleighs and drums, playing drum, teaching drumming and drum painting",art,object,"Denmark, ME"
+1814,"7 September - 25 November, private and musician in three Portland militia companies",occupation,NA,"Portland, ME"
+1814,Teaching school,occupation,NA,"Baldwin, ME"
+1815,Teaching school,occupation,NA,"Waterford, ME"
+1815,Building wind-driven gristmills,occupation,NA,"Portland, ME"
+1815,"24 January, copyrighted title of music book, The Martial Musician's Companion",writing,music,NA
+1815,"16 October, married Eunice Twombly",life,NA,"Portland, ME"
+1816,"Moved to New Haven, Connecticut",residence,NA,"New Haven, CT"
+1816,Started portrait painting,art,portrait,"New Haven, CT"
+1816,Conducting a dancing school ,art,dance,"New Haven, CT"
+1816,"16 August, son Stephen Twombly is born",life,NA,"Portland, ME"
+1817,Trading voyage to Northwest Coast of Hawaii,travel,NA,Hawaii
+1818,Painting,art,unknown,Hawaii
+1819,Painting portraits,art,portrait,"Boston, MA"
+1819,TRAVELING ,travel,unknown,NA
+1820,"9 August, son Rufus King is born",life,NA,"Cambridge, MA"
+1820,Creates camera obscura to facilitate portrait painting,science,NA,"Alexandria, VA"
+1820,TRAVELING ,travel,portrait,NA
+1820,Boring for source of perpetual heat,science,NA,"Harrisonburg, VA"
+1820,Invents main features of the aerial locomotive,science,NA,NA
+1821,TRAVELING ,travel,NA,NA
+1822,"Invented, manufactured, and sold a revolving almanac",science,NA,"Billerica, MA"
+1823,TRAVELING ,travel,NA,NA
+1823,Worked on project of a horse-propelled twin boat,science,NA,"Hartford, CT"
+1823,"29 June, twin sons Sylvanus Frederick and Francis Augustus born",life,NA,"Billerica, MA"
+1823,Stagecoach trip,travel,NA,"Philadelphia, PA"
+1824,Begins traveling mural painting,art,mural,NA
+1824,"Built, worked on, and then sold a horse-powered flatboat",science,NA,Connecticut River
+1824,"Published A Select Collection of Approved, Genuine, Secret and Modern Receipts, For the Preparation and Execution of Various Valuable and Curious Arts",publishing,NA,"Concord, MA"
+1825,"5 December, son John Randolph born",life,NA,"Billerica, MA"
+1825,"Published four editions of A Select Collection of Valuable and Curious Arts, and Interesting Experiments ",publishing,NA,"Concord, MA"
+1825,more traveling,travel,NA,NA
+1827,"31 July, son Edward Leroy born",life,NA,"Billerica, MA"
+1827,Painted murals,art,mural,"Portland, ME"
+1829,"16 July, daughter Nancy Adams born",life,NA,"Billerica, MA"
+1830,Painted murals,art,mural,"Fryeburg, ME"
+1830,Painted murals,art,mural,"Hollis Center, ME"
+1830,more traveling,travel,NA,NA
+1831,"19 June, daughter Ellen Augusta born",life,NA,"Billerica, MA"
+1831,Painted murals,art,mural,"Topsham, VT"
+1832,Patented a clock,science,NA,NA
+1832,Painted murals,art,mural,"Georgetown, MA"
+1833,Constructed first model of airship,science,NA,"Bristol, CT"
+1834,Published plans for airship construction in Mechanics' Magazine,publishing,NA,NA
+1834,Patented a boat improvement,patent,NA,NA
+1834,"1 October, son Washington Irving born",life,NA,"Billerica, MA"
+1835,Patented a floating dry dock,patent,NA,NA
+1835,Patented a self-adjusting cheese press,patent,NA,NA
+1835,more traveling,travel,NA,NA
+1836,"7 January, son Washington Irving died",life,NA,"Billerica, MA"
+1836,Patented distance measuring device,patent,NA,NA
+1836,Patented horse-power mechanism,patent,NA,NA
+1838,Patented a churn,patent,NA,NA
+1838,Patented a corn sheller,patent,NA,NA
+1838,Painted murals,art,mural,"West Boxford, MA"
+1838,Painted murals,art,mural,"Westwood, MA"
+1840,Patented life preserver,patent,NA,NA
+1840,Patented fire alarm,patent,NA,NA
+1840,Patented cheese press,patent,NA,NA
+1840,Bought interest in the New York Mechanic,publishing,NA,"New York, NY"
+1841,Publishing and editing New York Mechanic,publishing,NA,"New York, NY"
+1842,Change to American Mechanic,publishing,NA,"Boston, MA"
+1842,"Publishes plans for assorted inventions, advertises his general patent agency in American Mechanic",publishing,NA,"Boston, MA"
+1843,Learned electroplating,science,NA,"Boston, MA"
+1843,Painted murals,art,mural,"Boston, MA"
+1844,"Invented a revolving rifle, sold it to Colonel Colt",science,NA,NA
+1844,Joined militia at the outbreak of the Mexican War,occupation,NA,NA
+1845,Painted murals ,art,mural,"East Weymouth, MA"
+1845,Publishing and editing the Scientific American,publishing,NA,"New York, NY"
+1847,Constructed and publicly exhibited a small working model of his airship,science,NA,"New York, NY"
+1847,Publishing and editing Scientific American ,publishing,NA,"New York, NY"
+1849,Second exhibition of the airship model,science,NA,"New York, NY"
+1848,"15 November, wife Eunice Twombly died",life,NA,"Billerica, MA"
+1849,Move to New York,residence,NA,"New York, NY"
+1849,"Married Emma Tallman Edgar of Roxbury, MA",life,NA,"Brooklyn, NY"
+1849,Patented method of working valves of auxiliary engines for feeding boilers,patent,NA,NA
+1849,Published Aerial Navigation,publishing,NA,"New York, NY"
+1850,Exhibition of larger airship model,science,NA,"Boston, MA"
+1850,"6 October, son Stephen Twombly died",life,NA,"Billerica, MA"
+1850,Moved to DC,residence,NA,"Washington, DC"
+1851,"23 January, petitioned Senate for appropriation to extend experiments in practical aviation",science,NA,"Washington, DC"
+1851,Organized Aerial Navigation Company to promote his airship,occupation,NA,"Washington, DC"
+1852,Published Essential Truth,publishing,NA,"Washington, DC"
+1853,Exhibited a twenty-two foot working model of his airship at Carusi's Hall,science,NA,"1014 Pennsylvania Avenue, Washington, DC"
+1854,Patented a cord-making machine,patent,NA,NA
+1854,Patented a chair-cane,patent,NA,NA
+1855,Moved to Springfield,residence,NA,"Springfield, MA"
+1856,Patented a punching machine,patent,NA,NA
+1856,Patented a fog whistle,patent,NA,NA
+1857,Patented two automatic grain-weighing machines,patent,NA,NA
+1858,Patented a steam engine,patent,NA,NA
+1859,Patented a blind fastener,patent,NA,NA
+1859,Son Frank Rufus born,life,NA,NA
+1861,Patented apparatus for elevating liquids by retained power,patent,NA,NA
+1861,Moved to Melrose,residence,NA,"Melrose, MA"
+1863,Patented an air pump,patent,NA,NA
+1865,Moved to Malden,residence,NA,"Malden, MA"
+1865,Patented a fan blower,patent,NA,NA
+1869,Move to NYC,residence,NA,"New York, NY"
+1869,Made plans for construction of an improved airship,science,NA,NA
+1871,Move to Bristol,residence,NA,"Bristol, CT"
+1871,Patented a vise,patent,NA,NA
+1872,Moved to Plantsville,residence,NA,"Plantsville, CT"
+1872,Religious writings,publishing,NA,NA
+1872,Invented and sold a cam lever vise,science,NA,NA
+1873,Moved to West Birmingham,residence,NA,"West Birmingham, CT"
+1873,Soliciting shares for his airship,occupation,NA,"West Birmingham, CT"
+1878,Address,residence,NA,"Water Street, West Haven, CT"
+1878,Applied for and received pension as veteran of War of 1812,occupation,NA,NA
+1879,Manufacturing and selling improved clothes driers,occupation,NA,NA
+1880,Moved back to Bristol,residence,NA,"Bristol, CT"
+1884,Visited son Frank Rufus ,life,NA,"West Haven, CT"
+1884,Died on 13 August,life,NA,"West Haven, CT"
+1884,Grave site,residence,NA,"Oak Grove Cemetery, West Haven, CT"

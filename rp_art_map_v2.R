@@ -36,9 +36,6 @@ rp_art <- rp_art %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326) %>% 
   st_jitter(factor = 0.002) 
 
-
-# add icon column ---------------------------------------------------------
-
 rp_art <- rp_art %>% 
   mutate(icon = case_when(type == "portrait" ~ "portrait",
                           type == "mural" & grepl("Rufus Porter", creator) ~ "rp_mural",
@@ -46,6 +43,8 @@ rp_art <- rp_art %>%
                           creator == "Jonathan D. Poor and Paine" ~ "jdp",
                           creator == "Porter School" ~ "school",
                           TRUE ~ "other"))
+
+write_csv(rp_art, "data/rp-art-clean-6-3.csv")
 
 # define icons ------------------------------------------------------------
 
