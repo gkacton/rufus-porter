@@ -30,7 +30,9 @@ chronology <- chronology %>%
 rp_art <- art %>% 
   mutate(town = case_when(town == "Fairbanks" ~ "Farmington",
                           TRUE ~town)) %>% 
-  mutate(location = paste(town, state, sep = ", ")) 
+  mutate(location = paste(town, state, sep = ", ")) %>% 
+  mutate(creator = case_when(creator == "Johnathan D. Poor" ~ "Jonathan D. Poor",
+                             TRUE ~ creator))
 
 write_csv(rp_art, "data/rp_art_clean_6-2.csv")
 
