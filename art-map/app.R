@@ -26,13 +26,14 @@ library(fontawesome)
 #                             icon == "other" ~ "other")) %>% 
 #   write_csv("data/rp_art_clean_6-8.csv")
 
-rp_art <- read_csv("data/rp_art_clean_6-8.csv")
+
+rp_art <- read_csv("data/rp_art_clean_images_6-8.csv")
 
 rp_art <- rp_art %>% 
   mutate(popup = paste0("<b>", subject, "</b>",
-                       "<br> Attirbuted to ", creator,
-                       "<br>", year, 
-                       "<br><img src= '",image,"', width = '200'>"))
+                        "<br>Attributed to ", creator,
+                        "<br>", year,
+                        "<br><img src='", image,"', width = '200'>"))
 
 # define icons ------------------------------------------------------
 
@@ -90,7 +91,11 @@ ui <- fluidPage(
                                       "Jonathan D. Poor" = "JDP",
                                       "The Rufus Porter School" = "school",
                                       "Other Artists" = "other"),
-                       selected = "RP")
+                       selected = "RP"),
+          radioButtons("pics", label = h3("Include:"),
+                       choices = list("All Points" = "all",
+                                      "Only Points with Images" = "img",
+                                      "Only Signed Works" = "sign"))
           
             # sliderInput("year",
             #             "Year:",
@@ -114,9 +119,24 @@ server <- function(input, output) {
 
   filteredData <- reactive({
       rp_art %>% 
-        filter(choice == input$artist) 
-        # filter(year <= input$year) 
-  })
+        filter(choice == input$artist) %>% 
+        {
+          if (input$pics == "img") {
+             {.} %>% 
+             filter(is.na(image) == FALSE)
+          } else {
+            {.} 
+          } 
+        } %>% 
+      {
+        if (input$pics == "sign") {
+          {.} %>% 
+            filter(attribution == "signed")
+        } else {
+          {.} 
+        } 
+      } 
+    })
     
   output$map <- renderLeaflet(
     leaflet() %>% 
