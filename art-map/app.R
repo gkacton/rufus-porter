@@ -5,24 +5,34 @@
 
 library(shiny)
 library(leaflet)
+library(tidyverse)
+library(fontawesome)
 
 
 # load data ---------------------------------------------------------------
 
-rp_art <- read_csv("data/rp-art-clean-6-3.csv")
+# rp_art <- read_csv("data/rp-art-clean-6-3.csv")
+# 
+# rp_art <- rp_art %>% 
+#   separate(col = geometry, into = c('lng', 'lat'), sep = '\\,') %>% 
+#   mutate(lat = substr(lat, 1, nchar(lat) -1)) %>% 
+#   mutate(lng = substr(lng, 3, nchar(lng))) %>% 
+#   mutate(lat = as.numeric(lat)) %>% 
+#   mutate(lng = as.numeric(lng)) %>% 
+#   mutate(choice = case_when(icon == "portrait" ~ "RP",
+#                             icon == "rp_mural" ~ "RP",
+#                             icon == "jdp" ~ "JDP",
+#                             icon == "school" ~ "school",
+#                             icon == "other" ~ "other")) %>% 
+#   write_csv("data/rp_art_clean_6-8.csv")
+
+rp_art <- read_csv("data/rp_art_clean_6-8.csv")
 
 rp_art <- rp_art %>% 
-  separate(col = geometry, into = c('lng', 'lat'), sep = '\\,') %>% 
-  mutate(lat = substr(lat, 1, nchar(lat) -1)) %>% 
-  mutate(lng = substr(lng, 3, nchar(lng))) %>% 
-  mutate(lat = as.numeric(lat)) %>% 
-  mutate(lng = as.numeric(lng)) %>% 
-  mutate(choice = case_when(icon == "portrait" ~ "RP",
-                            icon == "rp_mural" ~ "RP",
-                            icon == "jdp" ~ "JDP",
-                            icon == "school" ~ "school",
-                            icon == "other" ~ "other")) %>% 
-  write_csv("data/rp_art_clean_6-8.csv")
+  mutate(popup = paste0("<b>", subject, "</b>",
+                       "<br> Attirbuted to ", creator,
+                       "<br>", year, 
+                       "<br><img src= '",image,"', width = '200'>"))
 
 # define icons ------------------------------------------------------
 
