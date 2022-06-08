@@ -21,7 +21,8 @@ rp_art <- rp_art %>%
                             icon == "rp_mural" ~ "RP",
                             icon == "jdp" ~ "JDP",
                             icon == "school" ~ "school",
-                            icon == "other" ~ "other"))
+                            icon == "other" ~ "other")) %>% 
+  write_csv("data/rp_art_clean_6-8.csv")
 
 # define icons ------------------------------------------------------
 
@@ -79,21 +80,17 @@ ui <- fluidPage(
                                       "Jonathan D. Poor" = "JDP",
                                       "The Rufus Porter School" = "school",
                                       "Other Artists" = "other"),
-                       selected = "RP"),
+                       selected = "RP")
           
-            sliderInput("year",
-                        "Year:",
-                        min = min(rp_art$year),
-                        max = max(rp_art$year),
-                        value = min(rp_art$year),
-                        step = 1,
-                        timeFormat = "%Y",
-                        sep = "",
-                        animate = animationOptions(interval = 1000,
-                                                   loop = TRUE,
-                                                   playButton = "Play",
-                                                   pauseButton = "Pause")
-        )),
+            # sliderInput("year",
+            #             "Year:",
+            #             min = min(rp_art$year),
+            #             max = max(rp_art$year),
+            #             value = min(rp_art$year),
+            #             step = 1,
+            #             timeFormat = "%Y",
+            #             sep = "")
+        ),
 
         # Show map
         mainPanel(
@@ -107,8 +104,8 @@ server <- function(input, output) {
 
   filteredData <- reactive({
       rp_art %>% 
-        filter(choice == input$artist) %>% 
-        filter(year <= input$year) 
+        filter(choice == input$artist) 
+        # filter(year <= input$year) 
   })
     
   output$map <- renderLeaflet(
