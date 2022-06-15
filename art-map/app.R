@@ -29,6 +29,7 @@ library(shinythemes)
 
 
 rp_art <- read_csv("data/rp_art_images_current.csv")
+artist_info <- read_csv("data/artist_info.csv")
 
 # define icons ------------------------------------------------------
 
@@ -36,27 +37,27 @@ iconList <- awesomeIconList(
   portrait = makeAwesomeIcon(
     text = fa("portrait"),
     markerColor = "white",
-    iconColor = "darkgreen"
+    iconColor = "#aeccf0"
   ),
   rp_mural = makeAwesomeIcon( 
     text = fa("home"),
     markerColor = "white",
-    iconColor = "darkgreen"
+    iconColor = "#aeccf0"
   ),
   jdp = makeAwesomeIcon(
     text = fa("tree"),
-    markerColor = "darkgreen",
-    iconColor = "white"
+    markerColor = "white",
+    iconColor = "#8aad37"
   ),
   school = makeAwesomeIcon(
     text = fa("paint-brush"),
     markerColor = "lightgray",
-    iconColor = "darkgreen"
+    iconColor = "#e7fbfb"
   ),
   other = makeAwesomeIcon(
     text = fa("paint-brush"),
     markerColor = "black",
-    iconColor = "green"
+    iconColor = "#e7fbfb"
   )
 )
 
@@ -106,13 +107,27 @@ ui <- fluidPage(
             tabPanel("Map",
                      leafletOutput("map")),
             tabPanel("About the Artist",
-                     htmlOutput("text"))
+                     htmlOutput("text")),
+            tabPanel("Sources",
+                     br(),
+                     p("Lefko, Linda Carter and Jane E. Radcliffe.", 
+                       em("Folk Art Murals of the Rufus Porter School: New England Landscapes, 1825-1845."),
+                       "Atglen, PA: Schiffer Publishing, 2011."),
+                     br(),
+                     p("Lipman, Jean.", 
+                       em("Rufus Porter: Rediscovered."),
+                       "New York, NY: Clarkson N. Potter, Inc., 1980."),
+                     br(),
+                     p("Sprague, Laura Feych and Justin Wolff, editors.",
+                       em("Rufus Porter's Curious World: Art and Invention in America, 1815-1860."),
+                       "University Park, PA: The Pennsylvania State University Press; Brunswick, ME: The Bowdoin College Museum of Art, 2019."))
+        )
       
            
           )
         )
     )
-)
+
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
