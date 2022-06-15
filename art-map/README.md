@@ -11,5 +11,6 @@
 
 - Sunrise eye mural ("The President's House"), held by Renwick Gallery - where did it come from? https://americanart.si.edu/blog/eye-level/2012/03/720/seats-power-and-occasional-settee
 - Two JDP murals may have images swapped - check on AFANews article
-
+- Other RPS murals in Bridgton? Check old house tour info 
+- 
 
