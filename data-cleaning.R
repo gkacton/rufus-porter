@@ -148,4 +148,4 @@ rp_art <- rp_art %>%
                                          "<br><img src='", rp_art$image,"', width = '200'>",
                                          "<br><small>Image from ", rp_art$img_src, "</small>")))
 
-write_csv(rp_art, "art-map/data/rp_art_images_current.csv")
+write_csv(rp_art, "data/rp_art_images_current.csv")

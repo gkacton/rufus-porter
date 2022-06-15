@@ -1,5 +1,5 @@
-info <- c(
-  "<b>Rufus Porter</b> was born in West Boxford, Massachusetts in 1792. 
+creator,info
+RP,"<b>Rufus Porter</b> was born in West Boxford, Massachusetts in 1792. 
   He spent much of his childhood in the Pleasant Mountain Gore, near what is now 
   Bridgton, Maine. As a young man, he attended Fryeburg Academy, worked as an
   apprentice shoemaker, spent time in the Militia during the War of 1812, and
@@ -11,37 +11,26 @@ info <- c(
   distant mountains, and huge trees in the foreground. Porter is known to have
   directly taught at least two other muralists: his nephew, Jonathan D. Poor, 
   and his son, Stephen Twombly Porter. He also published instructions for his
-  landscape mural painting style in his book <em>Curious Arts</em>.",
-  "<b>Jonathan D. Poor</b> was born in Sebago, Maine in 1807. It is likely that
+  landscape mural painting style in his book <em>Curious Arts</em>."
+JDP,"<b>Jonathan D. Poor</b> was born in Sebago, Maine in 1807. It is likely that
   Poor spent the 1820s travelling with his uncle, Rufus Porter, producing painted
   portraits and silhouettes. Based on the dated signatures he left, Poor worked 
   as a mural painter between 1830 and 1842, and likely learned the craft from
   his uncle, although he developed his own style. Poor's murals feature a greater
   variety of colors, detailed hillsides with orchards and fencing, and sumac
-  shrubs and red birds in the foreground.",
-  "<b>The Rufus Porter School</b> is the term applied to un-signed murals 
+  shrubs and red birds in the foreground."
+school,"<b>The Rufus Porter School</b> is the term applied to un-signed murals 
   painted in the style of Rufus Porter's murals. There are dozens, if not 
   hundreds, of Porter School murals in New England, which feature common Porter
   motifs, such as trees, fields, boats, and houses. It is likely that the 
   unknown painters of Porter School murals learned from Porter's instructions 
-  in <em>Curious Arts</em>.",
-  "<b>E.J. Gilbert</b> was a painter of Porter School murals. There is no 
+  in <em>Curious Arts</em>."
+other,"<b>E.J. Gilbert</b> was a painter of Porter School murals. There is no 
   biographical information available about him, but it is known that Gilbert 
   painted and signed murals in the Knowlton House in Winthrop, ME, at 
   some time during the 1830s. The signature is stenciled, indicating that Gilbert
   planned to create and sign more murals; it is possible that other E.J. Gilbert
-  murals have been covered by wallpaper or paint, and have yet to be uncovered.
+  murals have been lost due to wallpaper or paint, and have yet to be uncovered.
   The style and motifs of Gilbert's mural indicate that he likely saw some of 
   Rufus Porter and/or J.D. Poor's murals in Maine, as he included images such as 
-  red sumac, faux chair rails, and water scenes.")
-  
-  
-creator <- c("RP", 
-             "JDP", 
-             "school", 
-             "other"
-             )
-
-artist_info <- data.frame(creator, info)
-
-artist_info %>% write_csv("art-map/data/artist_info.csv")
+  red sumac, faux chair rails, and water scenes."
