@@ -28,13 +28,7 @@ library(shinythemes)
 #   write_csv("data/rp_art_clean_6-8.csv")
 
 
-rp_art <- read_csv("data/rp_art_clean_images_6-8.csv")
-
-rp_art <- rp_art %>% 
-  mutate(popup = paste0("<b>", subject, "</b>",
-                        "<br>Attributed to ", creator,
-                        "<br>", year,
-                        "<br><img src='", image,"', width = '200'>"))
+rp_art <- read_csv("data/rp_art_images_current.csv")
 
 # define icons ------------------------------------------------------
 
@@ -73,9 +67,7 @@ rp_map <- leaflet() %>%
   addAwesomeMarkers(
     data = rp_art,
     popup = ~popup,
-    icon = iconList[rp_art$icon],
-    lng = ~lng,
-    lat = ~lat
+    icon = iconList[rp_art$icon]
   )
 
 # define UI ---------------------------------------------------------------
@@ -114,7 +106,7 @@ ui <- fluidPage(
             tabPanel("Map",
                      leafletOutput("map")),
             tabPanel("About the Artist",
-                     p("Text here"))
+                     htmlOutput("text"))
       
            
           )
@@ -157,6 +149,8 @@ server <- function(input, output) {
         lat = ~lat
       )
   )
+  
+  output$text <- renderUI(HTML({artist_info$info[artist_info$creator == input$artist]}))
 }
 
 # Run the application 
