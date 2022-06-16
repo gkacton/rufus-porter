@@ -61,6 +61,7 @@ The script `data-prep.r` will add several columns to the `rp_art` data frame, th
 | MSM | This item is in the collection of the Maine State Museum, and this is who they attribute it to. |
 | OSV | This item is in the collection of Old Sturbridge Village or in an OSV-owned building, and this is who they attribute it to. |
 | Lipman | Jean Lipman included this item in her book _Rufus Porter Rediscovered_. Lipman's attribution of many New England murals to Rufus Porter has since been contested, so the vast majority of Lipman-designated works have now been attributed to the Porter School, rather than to a single artist. |
+| Lefko | Linda Carter Lefko and Jane E. Radcliffe included this item in their book _Folk Art Murals of the Rufus Porter School_, and this is who they attribute it to. |
 | tradition | Lipman indicated that this work "traditionally attributed" to a certain artist. |
 | signed | The artist signed this work. |
 
