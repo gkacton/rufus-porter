@@ -36,8 +36,8 @@ info <- c(
   red sumac, faux chair rails, and water scenes.")
   
   
-creator <- c("RP", 
-             "JDP", 
+creator <- c("rp", 
+             "jdp", 
              "school", 
              "other"
              )
