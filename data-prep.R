@@ -1,4 +1,7 @@
-# Load Packages -----------------------------------------------------------
+# For final data prep before using app
+
+
+# Load packages -----------------------------------------------------------
 
 library(tidyverse)
 library(lubridate)
@@ -9,109 +12,27 @@ library(leaflet) ## For leaflet interactive maps
 library(sf) ## For spatial data
 library(RColorBrewer) ## For colour palettes
 library(htmltools) ## For html
-library(leafsync) ## For placing plots side by side
 library(kableExtra) ## Table output
 library(ggmap) ## for google geocoding
 library(vistime)
 
-
 # Load data ---------------------------------------------------------------
 
-chronology <- read_csv("data/RP_chronology_6-1.csv")
-timeline <- read_csv("data/RP_timeline.csv")
-art <- read_csv("data/RP_art_6-2.csv")
+rp_art <- read_csv('art-map/data/rp_art_images.csv')
 
-
-# clean data --------------------------------------------------------------
-
-chronology <- chronology %>% 
-  mutate(year = as.Date(strptime(year, format = "%Y")))
-
-rp_art <- art %>% 
-  mutate(town = case_when(town == "Fairbanks" ~ "Farmington",
-                          TRUE ~town)) %>% 
-  mutate(location = paste(town, state, sep = ", ")) %>% 
-  mutate(creator = case_when(creator == "Johnathan D. Poor" ~ "Jonathan D. Poor",
-                             TRUE ~ creator))
-
-write_csv(rp_art, "data/rp_art_clean_6-2.csv")
-
-timeline <- timeline %>% 
-  mutate(start = as.Date(strptime(start, format = "%d %B %Y"))) %>% 
-  mutate(stop = as.Date(strptime(stop, format = "%d %B %Y"))) %>% 
-  mutate(group = case_when(grepl("Life", event) ~ "life",
-                           grepl("Marriage", event) ~ "marriage",
-                           grepl("Voyage", event) ~ "travel",
-                           grepl("Traveling", event) ~ "travel",
-                           grepl("Stagecoach", event) ~ "travel",
-                           grepl("Teaching", event) ~ "jobs",
-                           grepl("Militia", event) ~ "jobs",
-                           grepl("Works", event) ~ "science",
-                           grepl("Work", event) ~ "science",
-                           grepl("Invents", event) ~ "science",
-                           grepl("Publishing", event) ~ "science")) %>%
-  mutate(color = case_when(group == "life" ~ "lightblue",
-                           group == "jobs" ~ "lightyellow",
-                           group == "marriage" ~ "lightpink",
-                           group == "travel" ~ "palegreen",
-                           group == "science" ~ "lightsalmon")) %>% 
-  mutate(group_true = "my events")
-
-         
-  
-
-# timeline ----------------------------------------------------------------
-
-rp_timeline <- vistime(timeline,
-                    col.start = "start",
-                    col.end = "stop",
-                    col.color = "color",
-                    col.group = "group_true",
-                    optimize_y = TRUE)
-
-
-# merge images df and most updated art df ---------------------------------
-
-register_google(key = "AIzaSyBJKyY6SoLXHZlJ691STnK20wTleh4O6Aw")
-
-# rp_art_6_11 <- read_csv("data/rp_art_6-11.csv")
-# rp_art_images <- read_csv("data/rp_art_clean_images_6-10.csv")
-# 
-# rp_art <- rp_art_6_11 %>% 
-#   select(subject) %>% 
-#   right_join(rp_art_images, by = "subject") %>% 
-#   select(-lng, -lat) %>% 
-#   mutate_geocode(location = location, 
-#                  output = "latlon", 
-#                  source = "google") %>% 
-#   st_as_sf(coords = c("lat", "lon"), crs = 4326)  %>% 
-#   st_jitter(factor = 0.002) %>% 
-#   mutate(geometry_char = as.character(geometry)) %>% 
-#   separate(col = geometry_char, into = c('lat', 'lng'), sep = '\\,') %>%
-#   mutate(lng = substr(lng, 1, nchar(lng) -1)) %>%
-#   mutate(lat = substr(lat, 3, nchar(lat))) %>%
-#   mutate(lat = as.numeric(lat)) %>%
-#   mutate(lng = as.numeric(lng)) %>% 
-#   select(-geometry)
-  
-rp_art <- read_csv("art-map/data/rp_art_images.csv")
+# Icons, choices, popups --------------------------------------------------
 
 rp_art <- rp_art %>% 
-  select(-lat, -lng) %>% 
-  mutate_geocode(location = location, 
-                 output = "latlon", 
-                 source = "google") %>% 
-  st_as_sf(coords = c("lat", "lon"), crs = 4326)  %>% 
-  st_jitter(factor = 0.002) %>% 
-  mutate(geometry_char = as.character(geometry)) %>% 
-  separate(col = geometry_char, into = c('lat', 'lng'), sep = '\\,') %>%
-  mutate(lng = substr(lng, 1, nchar(lng) -1)) %>%
-  mutate(lat = substr(lat, 3, nchar(lat))) %>%
-  mutate(lat = as.numeric(lat)) %>%
-  mutate(lng = as.numeric(lng)) %>% 
-  select(-geometry) 
-
-rp_art <- rp_art %>% 
+  mutate(icon = case_when(type == "portrait" ~ "portrait",
+                          type == "mural" & grepl("Rufus Porter", creator) ~ "rp_mural",
+                          creator == "Jonathan D. Poor"  ~ "jdp",
+                          creator == "Jonathan D. Poor and Paine" ~ "jdp",
+                          creator == "Porter School" ~ "school",
+                          TRUE ~ "other")) %>% 
+  mutate(choice = case_when(grepl("Rufus Porter", creator) ~ "rp",
+                            grepl("Jonathan D. Poor", creator) ~ "jdp",
+                            creator == "Porter School" ~ "school",
+                            TRUE ~ "other")) %>% 
   mutate(popup = case_when(attribution == "signed" ~ paste0("<b>", rp_art$subject, "</b>",
                                                             "<br>Signed by ", rp_art$creator,
                                                             "<br>Circa ", rp_art$year,
@@ -148,4 +69,25 @@ rp_art <- rp_art %>%
                                          "<br><img src='", rp_art$image,"', width = '200'>",
                                          "<br><small>Image from ", rp_art$img_src, "</small>")))
 
-write_csv(rp_art, "data/rp_art_images_current.csv")
+
+# Geocoding ---------------------------------------------------------------
+
+register_google(key = "AIzaSyBJKyY6SoLXHZlJ691STnK20wTleh4O6Aw")
+
+rp_art <- rp_art %>% 
+  mutate_geocode(location = location, 
+                 output = "latlon", 
+                 source = "google") %>% 
+  st_as_sf(coords = c("lat", "lon"), crs = 4326)  %>% 
+  st_jitter(factor = 0.002) %>% 
+  mutate(geometry_char = as.character(geometry)) %>% 
+  separate(col = geometry_char, into = c('lat', 'lng'), sep = '\\,') %>%
+  mutate(lng = substr(lng, 1, nchar(lng) -1)) %>%
+  mutate(lat = substr(lat, 3, nchar(lat))) %>%
+  mutate(lat = as.numeric(lat)) %>%
+  mutate(lng = as.numeric(lng)) %>% 
+  select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src) %>% 
+  write_csv("art-map/data/rp_art_images_CLEAN.csv")
+  
+         
+  
