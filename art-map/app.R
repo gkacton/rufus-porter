@@ -12,23 +12,7 @@ library(shinythemes)
 
 # load data ---------------------------------------------------------------
 
-# rp_art <- read_csv("data/rp-art-clean-6-3.csv")
-# 
-# rp_art <- rp_art %>% 
-#   separate(col = geometry, into = c('lng', 'lat'), sep = '\\,') %>% 
-#   mutate(lat = substr(lat, 1, nchar(lat) -1)) %>% 
-#   mutate(lng = substr(lng, 3, nchar(lng))) %>% 
-#   mutate(lat = as.numeric(lat)) %>% 
-#   mutate(lng = as.numeric(lng)) %>% 
-#   mutate(choice = case_when(icon == "portrait" ~ "RP",
-#                             icon == "rp_mural" ~ "RP",
-#                             icon == "jdp" ~ "JDP",
-#                             icon == "school" ~ "school",
-#                             icon == "other" ~ "other")) %>% 
-#   write_csv("data/rp_art_clean_6-8.csv")
-
-
-rp_art <- read_csv("data/rp_art_images_current.csv")
+rp_art <- read_csv("data/rp_art_images_CLEAN.csv")
 artist_info <- read_csv("data/artist_info.csv")
 
 # define icons ------------------------------------------------------
@@ -82,11 +66,11 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
           radioButtons("artist", label = h3("Select Artist"),
-                       choices = list("Rufus Porter" = "RP",
-                                      "Jonathan D. Poor" = "JDP",
+                       choices = list("Rufus Porter" = "rp",
+                                      "Jonathan D. Poor" = "jdp",
                                       "The Rufus Porter School" = "school",
                                       "Other Artists" = "other"),
-                       selected = "RP"),
+                       selected = "rp"),
           checkboxInput("check1", label = "Show only signed works", value = TRUE),
           checkboxInput("check2", label = "Show only works with images", value = TRUE),
           img(src = "https://static.wixstatic.com/media/c362e1_38d120f61b384f329258926d8dd8a973~mv2.png/v1/fill/w_305,h_308,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/New%20RPM%20Logo%20big%20FINAL.png", align = 'left', height = '100px')
@@ -133,24 +117,18 @@ ui <- fluidPage(
 server <- function(input, output) {
 
   filteredData <- reactive({
-      rp_art %>% 
-        filter(choice == input$artist) %>% 
-        {
-          if (input$check2 == TRUE) {
-             {.} %>% 
-             filter(is.na(image) == FALSE)
-          } else {
-            {.} 
-          } 
-        } %>% 
-      {
-        if (input$check1 == TRUE) {
-          {.} %>% 
-            filter(attribution == "signed")
-        } else {
-          {.} 
-        } 
-      } 
+    
+       rp_art <- rp_art %>% 
+         filter(choice == input$artist)
+       
+       if(input$check1 == TRUE)
+         rp_art <- rp_art %>% filter(is.na(image) == FALSE)
+       
+       if(input$check2 == TRUE)
+         rp_art <- rp_art %>% filter(attribution == "signed")
+       
+       rp_art
+       
     })
     
   output$map <- renderLeaflet(
