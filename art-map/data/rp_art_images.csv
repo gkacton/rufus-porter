@@ -46,10 +46,10 @@ location,subject,year,creator,type,attribution,image,img_src
 "North Haverhill, NH",Leslie Lackie House,1825,Porter School,mural,Lipman,NA,NA
 "Portland, ME",Deacon John Bailey House,1827,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vTFJerZe8krrDh6HMnfQ-g2RhxnGNnYOIJPDdY0lj-LdI_YzOSLYPwGkLJATgZdo0GN2KRB-kDhzYdk/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Portland, ME",Ellis Place,1827,Porter School,mural,Lipman,NA,NA
-"Amesbury, MA",Bartlett House,1830,Porter School,mural,Lipman,NA,NA
+"Amesbury, MA",Bartlett House,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vQJu-Znem26TndcKbzeQymjyAkgg8Fb5fcopjWB0GJ1AYdoeEmq4ZvrmjEDfbH_TIsFpsoleC26kTdJ/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Bedford, MA",Penniman-Stearns House,1830,Porter School,mural,Lipman,NA,NA
 "Bedford, MA",Jonas Monroe House,1830,Porter School,mural,Lipman,NA,NA
-"Bedford, MA",Dutton House,1830,Porter School,mural,Lipman,NA,NA
+"Bedford, MA",Dutton House,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vS1m6f-aZ2T4fXtLUi3nTw9l1C9cOApXSZSjQAJj38tfgKoIBZG6RZ0n8cClRPanDjL2mzrdfhk3-cp/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Bedford, MA",Carroll Dunham House,1830,Porter School,mural,Lipman,NA,NA
 "Bedford, MA",Job Lane House,1830,Porter School,mural,Lipman,https://joblanefarmmuseum.org/wp-content/uploads/2021/10/DSCN1317-768x576.jpg,Job Lane Farm Museum
 "Billerica, MA",Donald Schult House,1830,Porter School,mural,Lipman,NA,NA
@@ -61,14 +61,15 @@ location,subject,year,creator,type,attribution,image,img_src
 "Groveland, MA",Savery Homestead,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSENp1y4L9MtaUwLpdL2QRYbTb-0utJuJjlIX1OeY0YiTfabCTN0YkeaMpEsSjgITMsEeGzyiJWhndy/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Groveland, MA",Spofford House,1830,Porter School,mural,Lipman,NA,NA
 "Groveland, MA",Edna Worthing Cottage,1830,Porter School,mural,Lipman,NA,NA
-"Harvard, MA",R. Raynond Warren Apartments,1830,Porter School,mural,Lipman,NA,NA
+"Groveland, MA","Stephen Parker, Jr. House",1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vQIdS_RBb3GvkGFRcZALraMynI-z-to1DFm3fxwQv4_8ja85HEgFhuEvA-_9Ek8Vrt1smr3dM9bDixa/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Harvard, MA",Harvard Inn,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSG5S0QyIcm14uJtE2h1PmKAL3kPKzaegRFzaesFvXMHadjmD-7FXul34ADkD5-rzqzQsLcNyAg3aga/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Harvard, MA",Wallace F. Bryant Estate Apartments (Whitney house),1830,Porter School,mural,Lipman,NA,NA
 "Lexington, MA",Joshua Simons House,1830,Porter School,mural,Lipman,NA,NA
 "Lunenburg, MA",Faith Gardner House,1830,Porter School,mural,Lipman,NA,NA
 "Merrimac, MA",Sargent House,1830,Porter School,mural,Lipman,NA,NA
 "Merrimacport, MA",Ronald Shaw HOuse,1830,Porter School,mural,Lipman,NA,NA
 "Townsend, MA",Charles A. Smith House,1830,Porter School,mural,Lipman,NA,NA
-"Townsend, MA",Reed Mansion,1830,Porter School,mural,Lipman,NA,NA
+"Townsend, MA",Reed Mansion,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSVaVJP_7xNqMgY3XnHQ5FGnbllrf48N4dqnEqOHm7MnvH2o7sqZheYZ8_r_GOAIcED9VQSSmMysuyZ/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Bridgton, ME",Deacon Libby House,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vRYkY_pNi4XSNROp4m0sze55aaS9yjKpk1o5-XZKccp1EU8ycvCP2ojk2vBgMXh8l7d8A_GVB5QW48W/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Buxton, ME",Carroll Rounds House,1830,Porter School,mural,Lipman,NA,NA
 "Buxton, ME",A.I. Poulsen House,1830,Porter School,mural,Lipman,NA,NA
@@ -98,7 +99,7 @@ location,subject,year,creator,type,attribution,image,img_src
 "Groton, MA",Dr. Harold Ayers House,1835,Jonathan D. Poor,mural,Lipman,NA,NA
 "North Reading, MA",Van Heusen Seventeenth-Century Farms,1835,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vRFgfu2ty75FVWz0GaKybF-rp4gCP3-G_B03Zrb0unaj9NkFhoHLoCZxhmC0GLNEdEGF-cGGR4UbZcx/pub?w=960&h=720,<em>Rufus Porter: Rediscovered</em> by Jean Lipman
 "North Reading, MA",Frances Shay Mague House,1835,Porter School,mural,Lipman,NA,NA
-"North Reading, MA",Weeks Memorial Library,1835,Porter School,mural,Lipman,NA,NA
+"North Reading, MA",Damon Tavern,1835,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSo5iPATL9V1ccW5WiLLUgzg36B4Lww1dVRlxBCjeZf7l6AIwDs3mKd1EO0KRiGUoaVRQEPDJPKvsfV/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "North Reading, MA",House near Route 28,1835,Porter School,mural,Lipman,NA,NA
 "Wakefield, MA",Winn House,1835,Porter School,mural,Lipman,NA,NA
 "Wakefield, MA",Franklin Poole House,1835,Porter School,mural,Lipman,NA,NA
@@ -110,10 +111,10 @@ location,subject,year,creator,type,attribution,image,img_src
 "Turner, ME",Unidentified House,1830,Orison Wood,mural,Lipman,NA,NA
 "West Mt. Vernon, ME",Unidentified House,1835,Jonathan D. Poor,mural,Lipman,NA,NA
 "Vienna, ME",Unidentified House,1833,Jonathan D. Poor,mural,tradition,NA,NA
-"West Boxford, MA",John A. Andrew House,1838,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSXB6N3NHpvrEIwkDNYAIBMfqcqrQg_pR8JjuRwtZlQ-RtzjLwZafTKwgWLFq695PT4OeSYL6JDrxyR/pub?w=960&h=720,<em>Rufus Porter: Rediscovered</em> by Jean Lipman
+"West Boxford, MA",John A. Andrew House,1838,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSXB6N3NHpvrEIwkDNYAIBMfqcqrQg_pR8JjuRwtZlQ-RtzjLwZafTKwgWLFq695PT4OeSYL6JDrxyR/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "West Boxford, MA",Joseph Burgson House,1838,Porter School,mural,Lipman,NA,NA
 "West Boxford, MA",Hovey House,1838,Porter School,mural,Lipman,NA,NA
-"Westwood, MA",Reuben Guild House,1838,Rufus Porter and Stephen Twombly Porter,mural,Lipman,NA,NA
+"Westwood, MA",Reuben Guild House,1838,Rufus Porter and Stephen Twombly Porter,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSlA6r3gCs1QlN7BavAL9bGfwfP2BgJDhwY9O7aRMY3ogfU1hkLR6XpuHOVrUtjoT5pUYEQ7HTeQ3wq/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Westwood, MA",Allen House,1838,Rufus Porter and Stephen Twombly Porter,mural,Lipman,NA,NA
 "Rumford, ME",Hezekiah Hutchins House,1840,Jonathan D. Poor,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vT17c-keKb15cHciIHudwbgVgkRObLyYAq_vo3-Xc5NVwrH0dpv7vr1q-qZN46OdXGmulg7WM0QQMtA/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Boston, MA",Beacon Hill Boarding House,1843,Porter School,mural,Lipman,NA,NA
@@ -140,7 +141,7 @@ location,subject,year,creator,type,attribution,image,img_src
 "Chesterville, ME",Fuller Dyke House,1834,Jonathan D. Poor,mural,signed,NA,NA
 "Groton, MA",Donald L. Priest House,1835,Jonathan D. Poor,mural,signed,http://s3.amazonaws.com/afanews_articles/01019/FIG-10_-%282.png,"""Rediscovering the Murals of Jonathan D. Poor"" by Jane E. Radcliffe"
 "Wakefield, MA",Emerson House,1835,Rufus Porter,mural,signed,http://s3.amazonaws.com/afanews_articles/01019/FIG-1_-%281.5-pg.png,"""Rediscovering the Murals of Jonathan D. Poor"" by Jane E. Radcliffe"
-"Woburn, MA",Shaker Glenn Inn,1835,Porter School,mural,signed,NA,NA
+"Woburn, MA",Shaker Glenn Inn,1835,Rufus Porter,mural,signed,NA,NA
 "Mt. Vernon, ME",Burbank House,1835,Jonathan D. Poor,mural,tradition,http://s3.amazonaws.com/afanews_articles/01019/FIG-5_-%282.37-pg.png,"""Rediscovering the Murals of Jonathan D. Poor"" by Jane E. Radcliffe"
 "Readfield, ME",Judge Bean House,1835,Jonathan D. Poor,mural,signed,http://s3.amazonaws.com/afanews_articles/01019/FIG-12_-10---Bean-signature-on-ship-LCL.png,"""Rediscovering the Murals of Jonathan D. Poor"" by Jane E. Radcliffe"
 "Westwood, MA",Dr. Francis Howe House,1838,Rufus Porter and Stephen Twombly Porter,mural,signed,https://upload.wikimedia.org/wikipedia/en/e/e1/Wall_mural_by_Rufus_Porter.jpg,Wikimedia Commons
@@ -174,14 +175,14 @@ location,subject,year,creator,type,attribution,image,img_src
 "Bethel, ME",Dr. Moses Mason House,1835,Jonathan D. Poor,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vTUjAezgA8_4fGT5N09kIXxLcP6iYVlk5I6fNqfFDp-B3ynnDlmlSjdqAs2WXjZF2fBvNXjUSSD6zvt/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Farmington, ME",Milton Gay House,1835,Jonathan D. Poor and Paine,mural,tradition,NA,NA
 "Farmington, ME",Gerald York House,1835,Jonathan D. Poor,mural,tradition,NA,NA
-"Farmington, ME",Benjamin Stanley House,1835,Jonathan D. Poor,mural,tradition,NA,NA
+"Farmington, ME",Benjamin Stanley House,1835,Jonathan D. Poor,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vRaJdKCx0ImfFiqm_Atm_kZ3tpxuLsFldbwJFMPxW3WgaaUzchhrmk9Uydk0EmCort69v7G6zzkffig/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Farmington, ME",David E. Currier House,1835,Jonathan D. Poor,mural,tradition,NA,NA
 "Fayette, ME",Lieutenant John Lovejoy House,1835,Jonathan D. Poor,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vSOnPJM4b6VTZ5j_iBlIDxoFzPLSmJORq0ixDYGOjotO5QRwjjzgxdGK8yBSSqZQrPcL0jxux9NkNzp/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Mt. Vernon, ME",Arthur Gordon House,1835,Jonathan D. Poor,mural,tradition,NA,NA
 "Readfield, ME",Captain Dudley Haines House,1835,Jonathan D. Poor,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vSOj7KMEzu3x88kkAt86iv17myL1qX7SOhu6NcG98CwLWTutEz-fUUE7BikxxTScyQlgpr3TK0e0tLj/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Strong, ME",William McCleary House,1835,Jonathan D. Poor,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vQXExVVL0CCfNq81bDBvgGUTfsAtdkRD9qA2sNLoVCk-dXfCv4SDci-mxy_swgflFD0UlcvfcNnFA1c/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Westwood, MA",E.A. West House,1838,Rufus Porter and Stephen Twombly Porter,mural,tradition,https://www.themagazineantiques.com/wp-content/uploads/2020/01/IMG_0011c.jpg,"""Revisiting Rufus Porter"" by  Suzanne Rudnick Payne AND Michael R. Payne"
-"Westwood, MA",Storer Ware House,1838,Rufus Porter and Stephen Twombly Porter,mural,tradition,NA,NA
+"Westwood, MA",Storer Ware House,1838,Rufus Porter and Stephen Twombly Porter,mural,tradition,https://docs.google.com/drawings/d/e/2PACX-1vTuLW_kLzKPZN-Qmz37Yf4lFZ87_r5DajKbedrGE_hrWNQ3NU4LTcHhBiDDNwTNC1lHJHqG2JECjWGx/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Farmington, ME",Robert C. Bruce House,1830,Jonathan D. Poor and Paine,mural,tradition,NA,NA
 "New Sharon, ME",Robert C. Bruce House,1840,Jonathan D. Poor,mural,tradition,NA,NA
 "Harvard, MA",William A. Potter House,1830,Porter School,mural,Lipman,https://docs.google.com/drawings/d/e/2PACX-1vSQtXJCslXi8J2Vm38lPXoClxevLVtR3t9p4B3f5qswvytUOVFRsyIdX_vKdrNnsP-VL5yH9h0uQnzp/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
@@ -190,3 +191,9 @@ location,subject,year,creator,type,attribution,image,img_src
 "North Leeds, ME",Barker House,1835,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vRrbA5PGqz3UB3TmGcf4Pvz82a26LO9Wy5jtCgSn0JmDS51d-ADNBmTCTGXjCXec1FE89HcCfiVh8IB/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Naples, ME",Perley House,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vSUiR_rIUjjPjQhD_MYHeQ6FnDPuOE032GbiDs76bZ1SV40T1ebC6Lx5d0VyJrp9icHt1LIgIKQGBKw/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
 "Buckfield, ME",Tobias Ricker House,1835,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vSJcaaYu1qPqLXUloWig7-alVRkRuPhV4PGufLD8Ferg3aAmHjv4yGW4gFF0_Sx9LsWbv5cs01f1Riq/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Swansea, MA",Mason Barney House,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vTwCb-LJyJBet8pOdX9FF2me-qwD3J2DJynCAjuThl9WEqsMU3jZxKF9DCzbk0kS_aWxcx5HZnRouET/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Winchester, MA",Edmund Parker House,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vQyO3gzvfzoVFjHlZvMd_KIGrCEhyKdfABjrN5uDReM_VEvyYkE3V5BWNhS-vGgdivNqkd39dx-hnKF/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Westwood, MA",Timothy Smith House,1835,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vQJ-4ClFiA319Lf4N_u0W0PriVszRGd9tsJeSRE3QJzGxd9DO1-Fz36kihHcSl-5h9D6sSantbflXzN/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Pepperell, MA",Artemas Hemenway Tavern,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vQwsSsef__jRnH7wttRrk5R3ARzSfdgdcHx4rA4aYEsmvhN-TtTlDkXa7uYaNLplbQvenkQ3cws0lKp/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Townsend, MA",Quincy Sylvester House,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vTGuQwC9VKSkOVj2sf2SBfIEes_sadMD9Yu7jwnEIoR-7b8AFbV394ctJi6dXCFofHUovxmJ-ckh9wO/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
+"Sturbridge, MA",Roswell Warner House,1830,Porter School,mural,Lefko,https://docs.google.com/drawings/d/e/2PACX-1vSA-dtMWzKP0-pvWmqHOBG--IxgJJFk_QpzBK3ViT-uLJAjoAcJSdgJZGFsx06JUhMsi9w8QZLpUlAw/pub?w=960&h=720,<em>Folk Art Murals of the Rufus Porter School </em> by Linda Carter Lefko and Jane E. Radcliffe
