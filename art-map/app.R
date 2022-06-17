@@ -121,10 +121,10 @@ server <- function(input, output) {
        rp_art <- rp_art %>% 
          filter(choice == input$artist)
        
-       if(input$check1 == TRUE)
+       if(input$check2 == TRUE)
          rp_art <- rp_art %>% filter(is.na(image) == FALSE)
        
-       if(input$check2 == TRUE)
+       if(input$check1 == TRUE)
          rp_art <- rp_art %>% filter(attribution == "signed")
        
        rp_art
