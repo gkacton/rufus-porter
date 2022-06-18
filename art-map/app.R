@@ -1,4 +1,4 @@
-# Animated Leaflet Map
+# Shiny with Leaflet Map
 
 
 # load libraries ----------------------------------------------------------
@@ -60,7 +60,8 @@ rp_map <- leaflet() %>%
 ui <- fluidPage(
     theme = shinytheme("flatly"),
     # Application title
-    titlePanel("Paintings of the Rufus Porter School"),
+    titlePanel("Paintings of the Rufus Porter School",
+               img(src = "https://static.wixstatic.com/media/c362e1_38d120f61b384f329258926d8dd8a973~mv2.png/v1/fill/w_305,h_308,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/New%20RPM%20Logo%20big%20FINAL.png", align = 'left', height = '100px')),
     
     # Sidebar with a slider input for year -> animated 
     sidebarLayout(
@@ -73,7 +74,7 @@ ui <- fluidPage(
                        selected = "rp"),
           checkboxInput("check1", label = "Show only signed works", value = TRUE),
           checkboxInput("check2", label = "Show only works with images", value = TRUE),
-          img(src = "https://static.wixstatic.com/media/c362e1_38d120f61b384f329258926d8dd8a973~mv2.png/v1/fill/w_305,h_308,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/New%20RPM%20Logo%20big%20FINAL.png", align = 'left', height = '100px')
+          
           
             # sliderInput("year",
             #             "Year:",
