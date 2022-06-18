@@ -1,0 +1,11 @@
+name: test-app
+title:
+username:
+account: gkacton
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6511941
+bundleId: 6020241
+url: https://gkacton.shinyapps.io/test-app/
+when: 1655581908.53904
+lastSyncTime: 1655581908.53906
