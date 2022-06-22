@@ -1,6 +1,14 @@
 # rufus-porter
 
-### Workflow for data-prep.R and art-map app
+## Welcome!
+
+This project seeks to document the art and travels of Rufus Porter, a 19th-century American painter, inventor, and publisher. Called the "Yankee DaVinci", Porter created hundreds of murals and miniature portraits throughout New England between 1815 and 1840. 
+
+### Format
+
+This project consists of an interactive Shiny application, which displays an interactive map of the murals and portraits of the Rufus Porter school. The user can filter the works by artist, as well as toggling to view only signed works or only works with images. The map was built with `leaflet` and `fontAwesome`. 
+
+### Workflow for Updates
 
 **Input**
 
