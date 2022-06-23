@@ -1,3 +1,5 @@
+# Grid Format
+
 # load libraries ----------------------------------------------------------
 
 library(shiny)
@@ -128,7 +130,8 @@ ui <- fluidPage(
           column(8,
                  style = "border-bottom: 3 px solid grey;
                           padding: 10px;",
-                 leafletOutput("map"),
+                 leafletOutput("map",
+                               height = 600),
                  column(12,
                        style = "background-color: #e7fbfb;
                                 border-bottom: 3px solid grey;
@@ -136,6 +139,15 @@ ui <- fluidPage(
                        h3("Sources")
                  ),
                  column(12,
+                       br(),
+                       p("Falk, Peter Hastings, editor.",
+                         em("Who was Who in American Art, 1564-1975: 400 Years of Artists in America."),
+                         "Vol. 3. Madison, CT: Sound View Press, 1999."),
+                       br(),
+                       p("Forcier, Polly.",
+                         em("The Moses Eaton and Moses Eaton, Jr. New England Collection, circa 1800-1840: Illustrations of 68 Authentic Stencil Patterns."),
+                         "Princeton, MA: MB Historic Decor."),
+                       br(),
                        p("Lefko, Linda Carter and Jane E. Radcliffe.", 
                          em("Folk Art Murals of the Rufus Porter School: New England Landscapes, 1825-1845."),
                           "Atglen, PA: Schiffer Publishing, 2011."),
@@ -147,8 +159,18 @@ ui <- fluidPage(
                        p("Sprague, Laura Feych and Justin Wolff, editors.",
                          em("Rufus Porter's Curious World: Art and Invention in America, 1815-1860."),
                          "University Park, PA: The Pennsylvania State University Press; Brunswick, ME: The Bowdoin College Museum of Art, 2019."))
+                )  
+        ),
+        fluidRow(
+                column(12,
+                  p("Developed by Grace Acton", align = 'center'),
+                  p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
+                  p("Last Updated: 23 June 2022", align = 'center'),
+                  style = "border-top: 3px solid grey;
+                          border-bottom: 3px solid grey;
+                          background-color: #ecfcfd;
+                          color: #251e1c")
         )
-  )
 )
 
 
@@ -164,7 +186,7 @@ server <- function(input, output) {
       filter(choice == input$artist)
     
     if(input$check2 == TRUE)
-      rp_art <- rp_art %>% filter(is.na(image) == FALSE)
+      rp_art <- rp_art %>% filter(has_img == "yes")
     
     if(input$check1 == TRUE)
       rp_art <- rp_art %>% filter(attribution == "signed")

@@ -220,7 +220,7 @@ blockquote {
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 small, .small {
@@ -8310,8 +8310,8 @@ fieldset:disabled .btn {
   font-weight: 400 !important;
 }
 
-.fw-bold {
-  font-weight: 700 !important;
+.fw-bold{
+  font-weight: 700;
 }
 
 .fw-bolder {
