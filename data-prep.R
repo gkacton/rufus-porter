@@ -18,7 +18,7 @@ library(vistime)
 
 # Load data ---------------------------------------------------------------
 
-rp_art <- read_csv('art-map/data/rp_art_images.csv')
+rp_art <- read_csv('rpm-map/data/rp_art_images.csv')
 
 # Icons, choices, popups --------------------------------------------------
 
@@ -34,45 +34,45 @@ rp_art <- rp_art %>%
                             creator == "Porter School" ~ "school",
                             TRUE ~ "other")) %>% 
   mutate(popup = case_when(attribution == "signed" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                            "<br>", rp_art$location, ", circa ", rp_art$year,
                                                             "<br>Signed by ", rp_art$creator,
-                                                            "<br>Circa ", rp_art$year,
-                                                            "<br><img src='", rp_art$image,"', width = '200'>",
-                                                            "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                            "<br><img src='", rp_art$image,"', width = '300'>",
+                                                            "<br><small>", rp_art$img_src, "</small>"),
                            attribution == "tradition" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                               "<br>", rp_art$location, ", circa ", rp_art$year,
                                                                "<br>Traditionally attributed to ", rp_art$creator,
-                                                               "<br>Circa ", rp_art$year,
-                                                               "<br><img src='", rp_art$image,"', width = '200'>",
-                                                               "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                               "<br><img src='", rp_art$image,"', width = '300'>",
+                                                               "<br><small>", rp_art$img_src, "</small>"),
                            attribution == "Bowdoin" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                             "<br>", rp_art$location, ", circa ", rp_art$year,
                                                              "<br>Attributed to ", rp_art$creator, " by Bowdoin College Museum of Art",
-                                                             "<br>Circa ", rp_art$year,
-                                                             "<br><img src='", rp_art$image,"', width = '200'>",
-                                                             "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                             "<br><img src='", rp_art$image,"', width = '300'>",
+                                                             "<br><small>", rp_art$img_src, "</small>"),
                            attribution == "Lipman" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                            "<br>", rp_art$location, ", circa ", rp_art$year,
                                                             "<br>Attributed to ", rp_art$creator, " by Jean Lipman",
-                                                            "<br>Circa ", rp_art$year,
-                                                            "<br><img src='", rp_art$image,"', width = '200'>",
-                                                            "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                            "<br><img src='", rp_art$image,"', width = '300'>",
+                                                            "<br><small>", rp_art$img_src, "</small>"),
                            attribution == "Lefko" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                           "<br>", rp_art$location, ", circa ", rp_art$year,
                                                            "<br>Attributed to ", rp_art$creator, " by Linda Carter Lefko and Jane E. Radcliffe",
-                                                           "<br>Circa ", rp_art$year,
-                                                           "<br><img src='", rp_art$image,"', width = '200'>",
-                                                           "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                            "<br><img src='", rp_art$image,"', width = '300'>",
+                                                           "<br><small>", rp_art$img_src, "</small>"),
                            attribution == "RPM" ~ paste0("<b>", rp_art$subject, "</b>",
+                                                         "<br>", rp_art$location, ", circa ", rp_art$year,
                                                          "<br>Attributed to ", rp_art$creator, " by the Rufus Porter Museum",
-                                                         "<br>Circa ", rp_art$year,
-                                                         "<br><img src='", rp_art$image,"', width = '200'>",
-                                                         "<br><small>Image from ", rp_art$img_src, "</small>"),
+                                                         "<br><img src='", rp_art$image,"', width = '300'>",
+                                                         "<br><small>", rp_art$img_src, "</small>"),
                            TRUE ~ paste0("<b>", rp_art$subject, "</b>",
+                                         "<br>", rp_art$location, ", circa ", rp_art$year,
                                          "<br>Attributed to  ", rp_art$creator,
-                                         "<br>Circa ", rp_art$year,
-                                         "<br><img src='", rp_art$image,"', width = '200'>",
+                                         "<br><img src='", rp_art$image,"', width = '300'>",
                                          "<br><small>Image from ", rp_art$img_src, "</small>")))
 
 
 # Geocoding ---------------------------------------------------------------
 
-register_google(key = "AIzaSyBJKyY6SoLXHZlJ691STnK20wTleh4O6Aw")
+register_google(key = "AIzaSyCWamZYQwWE3njNT0vxTswZtji3g06G2JI")
 
 rp_art <- rp_art %>% 
   mutate_geocode(location = location, 
@@ -86,8 +86,8 @@ rp_art <- rp_art %>%
   mutate(lat = substr(lat, 3, nchar(lat))) %>%
   mutate(lat = as.numeric(lat)) %>%
   mutate(lng = as.numeric(lng)) %>% 
-  select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src) %>% 
-  write_csv("art-map/data/rp_art_images_CLEAN.csv")
+  select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src, has_img) %>% 
+  write_csv("rpm-map/data/rp_art_images_CLEAN.csv")
   
          
   
