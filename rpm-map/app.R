@@ -116,6 +116,14 @@ ui <- fluidPage(
                           value = TRUE,
                           status = "info")
                         ),
+                 column(6, 
+                        offset = 3,
+                        awesomeCheckbox(
+                          inputId = "check3",
+                          label = "Show only works that can currently be viewed in-person",
+                          value = FALSE,
+                          status = "info")
+                        ),
                  column(12,
                         h3("About the Artist"),
                         style = "border-top: 3px solid grey;
@@ -190,6 +198,9 @@ server <- function(input, output) {
     
     if(input$check1 == TRUE)
       rp_art <- rp_art %>% filter(attribution == "signed")
+    
+    if(input$check3 == TRUE)
+      rp_art <- rp_art %>% filter(on_view == "yes")
     
     rp_art
     

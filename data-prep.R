@@ -86,7 +86,7 @@ rp_art <- rp_art %>%
   mutate(lat = substr(lat, 3, nchar(lat))) %>%
   mutate(lat = as.numeric(lat)) %>%
   mutate(lng = as.numeric(lng)) %>% 
-  select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src, has_img) %>% 
+  select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src, has_img, on_view) %>% 
   write_csv("rpm-map/data/rp_art_images_CLEAN.csv")
   
          
