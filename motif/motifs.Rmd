@@ -1,0 +1,577 @@
+---
+title: "Investigating Regionality of Porter School Motifs"
+author: "Grace Acton"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r load, echo=FALSE, warning=F}
+library(tidyverse)
+library(leaflet)
+library(sf)
+library(fontawesome)
+
+motifs <- read_csv("data/rp_art_motifs_CLEAN.csv")
+
+jdp <- motifs %>% 
+  filter(grepl("Jonathan D. Poor", creator) & attribution == "signed")
+
+rp <- motifs %>% 
+  filter(grepl("Rufus Porter", creator) & attribution == "signed")
+```
+
+```{r initialize-leaflets, echo=FALSE}
+jdp_map <- leaflet() %>% 
+  addProviderTiles("Stamen.TonerLite") %>% 
+  addCircleMarkers(
+    data = jdp,
+    radius = 30,
+    opacity = 0.2,
+    color = "green",
+    fillColor = 'green'
+  )
+
+rp_map <- leaflet() %>% 
+  addProviderTiles("Stamen.TonerLite") %>% 
+  addCircleMarkers(
+    data = rp,
+    radius = 30,
+    opacity = 0.2,
+    color = "blue",
+    fillColor = "blue"
+  )
+```
+
+## Stenciled Village
+
+```{r village}
+filtered_data <- motifs %>% 
+  filter(`village-stenciled` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Taupe Barn
+
+```{r barn}
+filtered_data <- motifs %>% 
+  filter(`taupe-barn` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Steamboat
+
+```{r steamboat}
+filtered_data <- motifs %>% 
+  filter(`steamboat` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Tree shaped like a Hat
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`hat-tree` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Birds
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`birds` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Fallen tree in the branches of another tree
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`fallen-tree` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Paired Trees
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`pair-tree` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Horses
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`horses` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Dogs
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`dogs` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Deer
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`deer` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Militiamen
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`militia` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Farm
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`farm` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Stenciled Ferns
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`ferns` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## White Federal-style House
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`white-house` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Cluster of 3 Buildings
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`three-buildings` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Tree with the Center Chopped Out
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`nocenter-tree` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Faux Chair Rail
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`chair-rail` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Fences
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`fence` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Man in a Sailing Skiff
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`skiff` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Hand-painted Village
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`village-handpaint` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Cows
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`cows` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Windmill
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`windmill` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Observatory
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`observatory` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Dense Woods
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`woods` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Octagonal Building
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`octagon` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Waterfall
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`waterfall` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Stenciled Border
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`border-stenciled` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Man with a Gun
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`man-shooting` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Large Red House
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`red-house` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Orchard
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`orchard` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Red Sumac
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`sumac` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Signpost
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`signpost` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Galleon
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`galleon` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Mountains
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`moountains` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Half Tree at the Side of Mural
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`half-tree` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Sailing Vessels
+
+```{r}
+filtered_data <- motifs %>% 
+  filter(`sailboats` == TRUE)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+# Motifs with clear spatial patterns
+
+## Steamboat
+
+```{r steamboat-overlay}
+filtered_data <- motifs %>% 
+  filter(`steamboat` == TRUE)
+
+rp_map %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+## Observatory
+
+```{r observatory-overlay}
+filtered_data <- motifs %>% 
+  filter(`observatory` == TRUE)
+
+jdp_map %>% 
+  addCircleMarkers(
+    data = filtered_data,
+    color = "red"
+  )
+```
+
+
