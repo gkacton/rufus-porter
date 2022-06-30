@@ -1,3 +1,4 @@
+# Multi-tab site with motif mapping
 
 # load libraries ---------------------------------------------------------------
 library(shiny)
@@ -11,23 +12,35 @@ library(shinyWidgets)
 
 rp_art <- read_csv("data/rp_art_images_CLEAN.csv")
 artist_info <- read_csv("data/artist_info.csv")
+motifs <- read_csv("data/rp_art_motifs_CLEAN.csv")
+motif_images <- read_csv("data/motif_images.csv")
+
+
+# make artist sets ---------------------------------------------------------
+
+jdp <- motifs %>% 
+  filter(grepl("Jonathan D. Poor", creator) & attribution == "signed")
+
+rp <- motifs %>% 
+  filter(grepl("Rufus Porter", creator) & attribution == "signed")
 
 # define icons ------------------------------------------------------
 
 iconList <- awesomeIconList(
   portrait = makeAwesomeIcon(
     text = fa("portrait"),
-    markerColor = "white",
-    iconColor = "#aeccf0"
+    markerColor = "cadetblue",
+    iconColor = "#aeccf0",
+    extraClasses = "outline: 1px solid black"
   ),
   rp_mural = makeAwesomeIcon( 
     text = fa("home"),
-    markerColor = "white",
+    markerColor = "cadetblue",
     iconColor = "#aeccf0"
   ),
   jdp = makeAwesomeIcon(
     text = fa("tree"),
-    markerColor = "white",
+    markerColor = "darkgreen",
     iconColor = "#8aad37"
   ),
   school = makeAwesomeIcon(
@@ -83,19 +96,8 @@ motifs_options <- c("Stenciled Village" = motifs_list[7],
                  "Half Tree at Edge of Wall" = motifs_list[41],
                  "Other Sailing Vessels" = motifs_list[42])
 
-# leaflet -----------------------------------------------------------------
-
-rp_map <- leaflet() %>% 
-  addTiles() %>% 
-  addAwesomeMarkers(
-    data = rp_art,
-    popup = ~popup,
-    icon = iconList[rp_art$icon]
-  )
-
-
-
-# define UI ---------------------------------------------------------------
+# -------------------------BEGIN SHINY APP-------------------------------------
+# define UI -------------------------------------------------------------------
 
 ui <- fluidPage(
         theme = shinytheme("flatly"),
@@ -108,7 +110,11 @@ ui <- fluidPage(
         ),
         navbarPage(
           title=div(img(src="RPMLogo.png", width = '30px'), "Art of the Rufus Porter School", style="vertical-align: middle;"),
-            tabPanel("Artwork Map",
+
+# art map tab -------------------------------------------------------------
+
+            
+          tabPanel("Artwork Map",
                       fluidRow(
                         column(12,
                                style = 'border-top: 3px solid grey;
@@ -138,17 +144,11 @@ ui <- fluidPage(
                                      status = "success"
                                    )
                             ),
-                            # radioButtons("artist", label = h3("Select Artist"),
-                            #              choices = list("Rufus Porter" = "rp",
-                            #                             "Jonathan D. Poor" = "jdp",
-                            #                             "The Rufus Porter School" = "school",
-                            #                             "Other Artists" = "other"),
-                            #              selected = "rp"),
                             column(6,
                                    awesomeCheckbox(
                                      inputId = "check1",
                                      label = "Show only signed works", 
-                                     value = TRUE,
+                                     value = FALSE,
                                      status = "info")
                             ),
                             column(6,
@@ -167,34 +167,47 @@ ui <- fluidPage(
                                      status = "info")
                             ),
                             column(12,
+                                   radioGroupButtons(
+                                     inputId = "map_type",
+                                     label = "Base Map",
+                                     choices = c("Color" = "OpenStreetMap.Mapnik", 
+                                                 "Black and White" = "Stamen.TonerLite"),
+                                     justified = TRUE
+                                   )   
+                            ),
+                            column(12,
                                    h3("About the Artist"),
                                    style = "border-top: 3px solid grey;
-                                border-bottom: 3px solid grey;
-                                background-color: #aeccf0;"
+                                           border-bottom: 3px solid grey;
+                                           background-color: #aeccf0;"
                             ),
                             column(12,
                                    br(),
                                    htmlOutput("text")
                             )
-                     ),
-                     column(8,
-                            style = "border-bottom: 3 px solid grey;
-                          padding: 10px;",
-                            leafletOutput("map",
-                                          height = 600)
-                     ),
-                   fluidRow(
-                     column(12,
-                            p("Developed by Grace Acton", align = 'center'),
-                            p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                            p("Last Updated: 23 June 2022", align = 'center'),
-                            style = "border-top: 3px solid grey;
-                          border-bottom: 3px solid grey;
-                          background-color: #ecfcfd;
-                          color: #251e1c")
-                   )
-              )
+                        ),
+                        column(8,
+                               style = "border-bottom: 3 px solid grey;
+                                       padding: 10px;",
+                               leafletOutput("art_map",
+                                              height = 600)
+                        )
+                      ),
+                      fluidRow(
+                        column(12,
+                               p("Developed by Grace Acton", align = 'center'),
+                               p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
+                               p("Last Updated: 23 June 2022", align = 'center'),
+                               style = "border-top: 3px solid grey;
+                                       border-bottom: 3px solid grey;
+                                       background-color: #ecfcfd;
+                                       color: #251e1c;"
+                        )
+                      )
           ),
+
+# motif tab ---------------------------------------------------------------
+
           tabPanel("Motifs",
                    fluidRow(
                      column(12,
@@ -207,9 +220,12 @@ ui <- fluidPage(
                      column(4,
                             style='border-right: 3px solid grey;',
                             column(12, 
-                                   h3("INPUT"),
+                                   h3("Options"),
                                    style = "border-bottom: 3px solid grey;
                                  background-color: #aeccf0"
+                            ),
+                            column(12,
+                                   h3("Select Motif")
                             ),
                             column(12,
                                    pickerInput(
@@ -221,76 +237,126 @@ ui <- fluidPage(
                             column(12,
                                    h3("Select artist to overlay")
                             ),
-                            column(6,
-                                   awesomeCheckbox(
-                                     inputId = "rp",
-                                     label = "Rufus Porter", 
-                                     value = TRUE,
-                                     status = "info")
+                            column(12,
+                                   radioGroupButtons(
+                                     inputId = "motif_artist",
+                                     label = NULL,
+                                     choices = c("Rufus Porter" = "rp", 
+                                                 "Jonathan D. Poor" = "jdp"),
+                                     justified = TRUE
+                                   )
                             ),
-                            column(6,
-                                   awesomeCheckbox(
-                                     inputId = "jdp",
-                                     label = "Jonathan D. Poor", 
-                                     value = TRUE,
-                                     status = "info")
+                            column(12,
+                                   sliderInput("circle_size", 
+                                               label = h3("Artist Marker Size"), 
+                                               min = 15, 
+                                               max = 80, 
+                                               value = 25,
+                                               ticks = FALSE),
+                                   style = "border-bottom: 3px solid grey;"
+                            ),
+                            column(12,
+                                   h3("Current Motif")
+                            ),
+                            column(12,
+                                   htmlOutput("motif_image",
+                                               width = "300px")
                             )
                      ),
                      column(8,
                             style = "border-bottom: 3 px solid grey;
-                          padding: 10px;",
-                            leafletOutput("map",
-                                          height = 600)
+                                     padding: 10px;",
+                            leafletOutput("motif_map",
+                                          height = "600px"),
+                            column(12,
+                                   h3("About this Page"),
+                                   style = "border-top: 3px solid grey;
+                                            border-bottom: 3px solid grey;
+                                            background-color: #aeccf0;"
+                            ),
+                            column(12,
+                                   br(),
+                                   p("This page lets you explore the many motifs of Porter School
+                                     murals. From animals to trees to houses, the artists of the
+                                     Rufus Porter School re-used many of the same designs in 
+                                     numerous murals."),
+                                   br(),
+                                   p("To explore, first select a motif from the dropdown menu."),
+                                   p("Then, select either Rufus Porter or Jonathan D. Poor to 
+                                     compare the locations of this motif to the locations of
+                                     signed works by each artist."),
+                                   p("Adjust the size of the circles indicating the signed murals
+                                     by moving the slider bar."),
+                                   br(),
+                                   p("For each motif, see whether it lines up more with Rufus 
+                                     Porter or Jonathan Poor's sphere of influence.")
                             )
-                            
-                     ),
-                     fluidRow(
-                       column(12,
-                              p("Developed by Grace Acton", align = 'center'),
-                              p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                              p("Last Updated: 23 June 2022", align = 'center'),
-                              style = "border-top: 3px solid grey;
-                          border-bottom: 3px solid grey;
-                          background-color: #ecfcfd;
-                          color: #251e1c")
                      )
-                   ),
+                  ),
+                  fluidRow(
+                     column(12,
+                            p("Developed by Grace Acton", align = 'center'),
+                            p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
+                            p("Last Updated: 23 June 2022", align = 'center'),
+                            style = "border-top: 3px solid grey;
+                                    border-bottom: 3px solid grey;
+                                    background-color: #ecfcfd;
+                                    color: #251e1c;"
+                     )
+                  )
+          ),
+
+# sources tab -------------------------------------------------------------
+
+
           tabPanel("Sources",
-                   column(12, 
-                          h2("Sources")),
-                   column(12,
-                          br(),
-                          p("Falk, Peter Hastings, editor.",
-                            em("Who was Who in American Art, 1564-1975: 400 Years of Artists in America."),
-                            "Vol. 3. Madison, CT: Sound View Press, 1999."),
-                          br(),
-                          p("Forcier, Polly.",
-                            em("The Moses Eaton and Moses Eaton, Jr. New England Collection, circa 1800-1840: Illustrations of 68 Authentic Stencil Patterns."),
-                            "Princeton, MA: MB Historic Decor."),
-                          br(),
-                          p("Lefko, Linda Carter and Jane E. Radcliffe.", 
-                            em("Folk Art Murals of the Rufus Porter School: New England Landscapes, 1825-1845."),
-                            "Atglen, PA: Schiffer Publishing, 2011."),
-                          br(),
-                          p("Lipman, Jean.", 
-                            em("Rufus Porter: Rediscovered."),
-                            "New York, NY: Clarkson N. Potter, Inc., 1980."),
-                          br(),
-                          p("Sprague, Laura Feych and Justin Wolff, editors.",
-                            em("Rufus Porter's Curious World: Art and Invention in America, 1815-1860."),
-                            "University Park, PA: The Pennsylvania State University Press; Brunswick, ME: The Bowdoin College Museum of Art, 2019.")
-                          ),
-                  column(12,
-                         p("Developed by Grace Acton", align = 'center'),
-                         p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                         p("Last Updated: 23 June 2022", align = 'center'),
-                         style = "border-top: 3px solid grey;
-                           border-bottom: 3px solid grey;
-                           background-color: #ecfcfd;
-                           color: #251e1c")
-                   )
-          )
-      )
+                   fluidRow(
+                     column(12,
+                            style = 'border-top: 3px solid grey;
+                                        border-bottom: 3px solid grey;
+                                        background-color: #ecfcfd;
+                                        padding: 20px;'
+                    )
+                   ),
+                   fluidRow(
+                     column(12, 
+                            h2("Sources")
+                     ),
+                     column(12,
+                            br(),
+                            p("Falk, Peter Hastings, editor.",
+                              em("Who was Who in American Art, 1564-1975: 400 Years of Artists in America."),
+                              "Vol. 3. Madison, CT: Sound View Press, 1999."),
+                            br(),
+                            p("Forcier, Polly.",
+                              em("The Moses Eaton and Moses Eaton, Jr. New England Collection, circa 1800-1840: Illustrations of 68 Authentic Stencil Patterns."),
+                              "Princeton, MA: MB Historic Decor."),
+                            br(),
+                            p("Lefko, Linda Carter and Jane E. Radcliffe.", 
+                              em("Folk Art Murals of the Rufus Porter School: New England Landscapes, 1825-1845."),
+                              "Atglen, PA: Schiffer Publishing, 2011."),
+                            br(),
+                            p("Lipman, Jean.", 
+                              em("Rufus Porter: Rediscovered."),
+                              "New York, NY: Clarkson N. Potter, Inc., 1980."),
+                            br(),
+                            p("Sprague, Laura Feych and Justin Wolff, editors.",
+                              em("Rufus Porter's Curious World: Art and Invention in America, 1815-1860."),
+                              "University Park, PA: The Pennsylvania State University Press; Brunswick, ME: The Bowdoin College Museum of Art, 2019.")
+                     ),
+                     column(12,
+                            p("Developed by Grace Acton", align = 'center'),
+                            p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
+                            p("Last Updated: 23 June 2022", align = 'center'),
+                            style = "border-top: 3px solid grey;
+                                     border-bottom: 3px solid grey;
+                                     background-color: #ecfcfd;
+                                     color: #251e1c;"
+                     )  
+                   ) 
+          ) # CLOSE tabPanel
+        ) # CLOSE navbarPage
+      ) # CLOSE fluidPage
 
 
 
@@ -299,8 +365,11 @@ ui <- fluidPage(
 # define server -----------------------------------------------------------
 
 server <- function(input, output) {
-  
-  filteredData <- reactive({
+
+
+# filter data for art map -------------------------------------------------
+
+  filteredData_art <- reactive({
     
     rp_art <- rp_art %>% 
       filter(choice == input$artist)
@@ -317,20 +386,100 @@ server <- function(input, output) {
     rp_art
     
   })
-  
-  output$map <- renderLeaflet(
+
+
+# define art map with leaflet ---------------------------------------------
+
+
+  output$art_map <- renderLeaflet(
     leaflet() %>% 
-      addTiles() %>% 
+      addProviderTiles(input$map_type) %>% 
       addAwesomeMarkers(
-        data = filteredData(),
+        data = filteredData_art(),
         popup = ~popup,
-        icon = iconList[filteredData()$icon],
+        icon = iconList[filteredData_art()$icon],
         lng = ~lng,
         lat = ~lat
+      ) %>% 
+      setView(
+        lng = -71.3,
+        lat = 43.5,
+        zoom = 7
       )
   )
   
+
+# filter data for motif map -----------------------------------------------
+
+
+  filteredData_motifs <- reactive({
+    
+    motifs <- motifs %>% 
+      filter(.data[[input$motif]] == TRUE)
+    
+    motifs
+  })
+  
+  filteredData_artist <- reactive({
+    
+    if(input$motif_artist == "rp") {
+      artist <-  motifs %>% 
+        filter(grepl("Rufus Porter", creator) & attribution == "signed")
+    }
+    
+    if(input$motif_artist == "jdp") {
+      artist <- motifs %>% 
+        filter(grepl("Jonathan D. Poor", creator) & attribution == "signed")
+    }
+    
+    artist
+  })
+
+
+# define motif map with leaflet -------------------------------------------
+
+  
+  output$motif_map <- renderLeaflet(
+    leaflet() %>%
+      addProviderTiles("Stamen.TonerLite") %>% 
+      addCircleMarkers(
+        data = filteredData_motifs(), 
+        color = "#8aad37",
+        weight = 2
+      ) %>% 
+      addCircleMarkers(
+        data = filteredData_artist(),
+        color = "#aeccf0",
+        weight = 2,
+        radius = input$circle_size,
+        opacity = 0.5
+      ) %>% 
+      setView(
+        lng = -71.3,
+        lat = 43.5,
+        zoom = 7
+      )
+  )
+  
+
+# set up "About Artist" section -------------------------------------------
+
+
   output$text <- renderUI(HTML({artist_info$info[artist_info$creator == input$artist]}))
+  
+
+# create image output for motifs ------------------------------------------
+  
+  img_html <- reactive({
+    
+    img_path <- motif_images$img[motif_images$motif == input$motif]
+    
+    img_path <- paste0("<img src='", img_path, "', width=\"300px\">")
+    
+    img_path
+  })
+
+  output$motif_image <- renderUI(HTML({img_html()}))
 }
 
 
