@@ -96,6 +96,11 @@ motifs_options <- c("Stenciled Village" = motifs_list[7],
                  "Half Tree at Edge of Wall" = motifs_list[41],
                  "Other Sailing Vessels" = motifs_list[42])
 
+
+# define footer -----------------------------------------------------------
+
+footer <- HTML("<center>Developed by Grace Acton <br> © Rufus Porter Museum of Art and Ingenuity <br> Last Updated: 9 July 2022</center>")
+
 # -------------------------BEGIN SHINY APP-------------------------------------
 # define UI -------------------------------------------------------------------
 
@@ -195,13 +200,12 @@ ui <- fluidPage(
                       ),
                       fluidRow(
                         column(12,
-                               p("Developed by Grace Acton", align = 'center'),
-                               p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                               p("Last Updated: 23 June 2022", align = 'center'),
+                               footer,
                                style = "border-top: 3px solid grey;
-                                       border-bottom: 3px solid grey;
-                                       background-color: #ecfcfd;
-                                       color: #251e1c;"
+                                        border-bottom: 3px solid grey;
+                                        background-color: #ecfcfd;
+                                        color: #251e1c;
+                                        align = center;"
                         )
                       )
           ),
@@ -295,9 +299,7 @@ ui <- fluidPage(
                   ),
                   fluidRow(
                      column(12,
-                            p("Developed by Grace Acton", align = 'center'),
-                            p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                            p("Last Updated: 23 June 2022", align = 'center'),
+                            footer,
                             style = "border-top: 3px solid grey;
                                     border-bottom: 3px solid grey;
                                     background-color: #ecfcfd;
@@ -345,9 +347,7 @@ ui <- fluidPage(
                               "University Park, PA: The Pennsylvania State University Press; Brunswick, ME: The Bowdoin College Museum of Art, 2019.")
                      ),
                      column(12,
-                            p("Developed by Grace Acton", align = 'center'),
-                            p("© Rufus Porter Museum of Art and Ingenuity", align = 'center'),
-                            p("Last Updated: 23 June 2022", align = 'center'),
+                            footer,
                             style = "border-top: 3px solid grey;
                                      border-bottom: 3px solid grey;
                                      background-color: #ecfcfd;

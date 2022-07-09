@@ -18,7 +18,7 @@ library(vistime)
 
 # Load data ---------------------------------------------------------------
 
-rp_art <- read_csv('rpm-map/data/rp_art_images.csv')
+rp_art <- read_csv('motifs-map/data/rp_art_images.csv')
 
 # Icons, choices, popups --------------------------------------------------
 
@@ -87,7 +87,8 @@ rp_art <- rp_art %>%
   mutate(lat = as.numeric(lat)) %>%
   mutate(lng = as.numeric(lng)) %>% 
   select(subject, year, location, creator, type, attribution, icon, choice, lat, lng, popup, image, img_src, has_img, on_view) %>% 
-  write_csv("rpm-map/data/rp_art_images_CLEAN.csv")
+  write_csv("rpm-map/data/rp_art_images_CLEAN.csv") %>% 
+  write_csv("motifs-map/data/rp_art_images_CLEAN.csv")
   
          
   
