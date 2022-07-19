@@ -222,7 +222,6 @@ ui <- fluidPage(
                    ),
                    fluidRow(
                      column(4,
-                            style='border-right: 3px solid grey;',
                             column(12, 
                                    h3("Options"),
                                    style = "border-bottom: 3px solid grey;
@@ -268,10 +267,13 @@ ui <- fluidPage(
                             )
                      ),
                      column(8,
-                            style = "border-bottom: 3 px solid grey;
-                                     padding: 10px;",
-                            leafletOutput("motif_map",
-                                          height = "600px"),
+                            style = "border-left: 3px solid grey;",
+                            column(12, 
+                              style = "padding: 10px;
+                                     border-bottom: 3px solid grey;",
+                              leafletOutput("motif_map",
+                                            height = "600px")
+                            ),
                             column(12,
                                    h3("About this Page"),
                                    style = "border-top: 3px solid grey;
@@ -293,7 +295,8 @@ ui <- fluidPage(
                                      by moving the slider bar."),
                                    br(),
                                    p("For each motif, see whether it lines up more with Rufus 
-                                     Porter or Jonathan Poor's sphere of influence.")
+                                     Porter or Jonathan Poor's sphere of influence."),
+                                   style = "border-left: 3 px solid grey;"
                             )
                      )
                   ),
