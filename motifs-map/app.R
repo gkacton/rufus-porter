@@ -99,7 +99,7 @@ motifs_options <- c("Stenciled Village" = motifs_list[7],
 
 # define footer -----------------------------------------------------------
 
-footer <- HTML("<center>Developed by Grace Acton <br> © Rufus Porter Museum of Art and Ingenuity <br> Last Updated: 9 July 2022</center>")
+footer <- HTML("<center>Developed by Grace Acton <br> © Rufus Porter Museum of Art and Ingenuity <br> Last Updated: 27 July 2022</center>")
 
 # -------------------------BEGIN SHINY APP-------------------------------------
 # define UI -------------------------------------------------------------------
