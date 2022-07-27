@@ -5,7 +5,7 @@ account: gkacton
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6575300
-bundleId: 6119501
+bundleId: 6138244
 url: https://gkacton.shinyapps.io/motifs-map/
-when: 1658410516.53567
-lastSyncTime: 1658410516.53569
+when: 1658926154.51758
+lastSyncTime: 1658926154.51759
