@@ -122,6 +122,14 @@ ui <- fluidPage(
           tabPanel("Artwork Map",
                       fluidRow(
                         column(12,
+                               h3("How to Navigate this Page"),
+                               p("1. Select an artist or group of artists that you're interested in."),
+                               p("2. Click your selected filters. You can restrict the map points
+                                 to only signed works, only works with available images, and/or 
+                                 only works that are able to be viewed in person in a museum 
+                                 or other publicly-accessible building."),
+                               p("3. Decide if you want the background map to be a Google Maps 
+                                 style colored map, or a simplified black-and-white map."),
                                style = 'border-top: 3px solid grey;
                                         border-bottom: 3px solid grey;
                                         background-color: #ecfcfd;
@@ -215,6 +223,22 @@ ui <- fluidPage(
           tabPanel("Motifs",
                    fluidRow(
                      column(12,
+                            h3("How to Navigate this Page"),
+                            p("1. Select a motif from the dropdown menu. A ", em("motif "), 
+                              "is a distinctive theme or image in a literary or artistic 
+                              work. The motifs of the Rufus Porter School are images, created by 
+                              both stencil and freehand painting, that appear in multiple 
+                              Porter School murals. When you select a motif from the list, it 
+                              will add green circles on the map to indicate the location of each mural 
+                              containing this motif."),
+                            p("2. Select an artist, either Rufus Porter or Jonathan D. Poor, to 
+                              add the locations of their signed work to the map. This will put 
+                              a blue circle around each town in which they painted and signed a mural. 
+                              The purpose of this is to compare the spatial patterns of each 
+                              artist's work with the spatial patterns of each motif to see which  
+                              artist likely favored which motifs."),
+                            p("3. Adjust the size of the artists' circles to define a larger or 
+                              smaller \"sphere of influence\" for each artist."),
                             style = 'border-top: 3px solid grey;
                                         border-bottom: 3px solid grey;
                                         background-color: #ecfcfd;
@@ -222,6 +246,7 @@ ui <- fluidPage(
                    ),
                    fluidRow(
                      column(4,
+                            style = "border-right: 3px solid grey;",
                             column(12, 
                                    h3("Options"),
                                    style = "border-bottom: 3px solid grey;
@@ -262,41 +287,17 @@ ui <- fluidPage(
                                    h3("Current Motif")
                             ),
                             column(12,
+                                   style = "padding-bottom: 20px;
+                                            padding-top: 5px;rsc",
                                    htmlOutput("motif_image",
                                                width = "300px")
                             )
                      ),
                      column(8,
-                            style = "border-left: 3px solid grey;",
                             column(12, 
-                              style = "padding: 10px;
-                                     border-bottom: 3px solid grey;",
+                              style = "padding: 10px;",
                               leafletOutput("motif_map",
                                             height = "600px")
-                            ),
-                            column(12,
-                                   h3("About this Page"),
-                                   style = "border-top: 3px solid grey;
-                                            border-bottom: 3px solid grey;
-                                            background-color: #aeccf0;"
-                            ),
-                            column(12,
-                                   br(),
-                                   p("This page lets you explore the many motifs of Porter School
-                                     murals. From animals to trees to houses, the artists of the
-                                     Rufus Porter School re-used many of the same designs in 
-                                     numerous murals."),
-                                   br(),
-                                   p("To explore, first select a motif from the dropdown menu."),
-                                   p("Then, select either Rufus Porter or Jonathan D. Poor to 
-                                     compare the locations of this motif to the locations of
-                                     signed works by each artist."),
-                                   p("Adjust the size of the circles indicating the signed murals
-                                     by moving the slider bar."),
-                                   br(),
-                                   p("For each motif, see whether it lines up more with Rufus 
-                                     Porter or Jonathan Poor's sphere of influence."),
-                                   style = "border-left: 3 px solid grey;"
                             )
                      )
                   ),
