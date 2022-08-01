@@ -4,17 +4,18 @@ info <- c(
   Bridgton, Maine. As a young man, he attended Fryeburg Academy, worked as an
   apprentice shoemaker, spent time in the Militia during the War of 1812, and
   became a dancing master. <br>In 1815, Porter began his time as an itinerant 
-  portrait painter. He traveled all around New England, painting inexpensive 
-  portraits and making hollow-cut silhouettes. <br>By the 1830s, he had expanded his
+  portrait painter. He traveled all around New England, painting miniature watercolor 
+  portraits and cutting silhouettes. <br>By the mid-1820s, he had expanded his
   artwork to landscape mural painting, which is what he is mostly remembered for
   today. Porter's style consisted of clear colors, a chest-high horizon line, 
   distant mountains, and huge trees in the foreground. Porter is known to have
   directly taught at least two other muralists: his nephew, Jonathan D. Poor, 
   and his son, Stephen Twombly Porter. He also published instructions for his
-  landscape mural painting style in his book <em>Curious Arts</em>.",
+  landscape mural painting style in his book <em>Curious Arts</em>, and in 
+  <em>Scientific American</em> magazine.",
   "<strong><u>Jonathan D. Poor</u></strong> was born in Sebago, Maine in 1807. It is likely that
-  Poor spent the 1820s travelling with his uncle, Rufus Porter, producing painted
-  portraits and silhouettes. Based on the dated signatures he left, Poor worked 
+  Poor spent the 1820s travelling with his uncle, Rufus Porter, to assist with 
+  his mural painting. Based on the dated signatures he left, Poor worked 
   as a mural painter between 1830 and 1842, and likely learned the craft from
   his uncle, although he developed his own style. Poor's murals feature a greater
   variety of colors, detailed hillsides with orchards and fencing, and sumac
@@ -24,7 +25,10 @@ info <- c(
   hundreds, of Porter School murals in New England, which feature common Porter
   motifs, such as trees, fields, boats, and houses. It is likely that the 
   unknown painters of Porter School murals learned from Porter's instructions 
-  in <em>Curious Arts</em>.",
+  in <em>Curious Arts</em> and <em>Scientific American</em>. Because Porter 
+  published his instructions for landscape painting, and is known to have taught
+  at least two artists directly, it is nearly impossible to attribute these 
+  unsigned murals to any single artist.",
   "<strong><u>E.J. Gilbert</u></strong> was a painter of Porter School murals. There is no 
   biographical information available about him, but it is known that Gilbert 
   painted and signed murals in the Knowlton House in Winthrop, ME, at 
@@ -44,7 +48,7 @@ info <- c(
   between the branches of another tree as Paine's signature, but there is little
   other evidence of his existence.<br>
   <br><strong><u>Moses Eaton, Jr.</u></strong> learned the art of wall stenciling from his father,
-  Moses Eaton, who was a prolific stenciler in New England in the late-18th and 
+  Moses Eaton, a prolific stenciler in New England in the late-18th and 
   early-19th centuries. Eaton Jr. is less documented than his father, but is 
   believed to have been one of the two young men said to have painted the walls
   of the Joshua Eaton House in Bradford, NH.<br>
@@ -79,4 +83,4 @@ creator <- c("rp",
 
 artist_info <- data.frame(creator, info)
 
-artist_info %>% write_csv("rpm-map/data/artist_info.csv")
+artist_info %>% write_csv("data/artist_info.csv")
